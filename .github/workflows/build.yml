@@ -1,0 +1,26 @@
+name: Build Legend Coder APK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build with Buildozer
+        uses: ArtemSBulgakov/buildozer-action@v1
+        id: buildozer
+        with:
+          command: buildozer android debug
+          buildozer_version: master
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: LegendCoderAI-APK
+          path: bin/*.apk

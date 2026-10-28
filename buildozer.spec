@@ -6,7 +6,7 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,html,css,js
 version = 1.0
 
-requirements = python3==3.11.5,flask,werkzeug,jinja2,itsdangerous,click,blinker,markupsafe,six,urllib3
+requirements = python3,flask,werkzeug,jinja2,itsdangerous,click,blinker,markupsafe,six,urllib3
 
 orientation = portrait
 fullscreen = 0

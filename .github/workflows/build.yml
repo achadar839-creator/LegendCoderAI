@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build-android:
@@ -20,18 +21,13 @@ jobs:
       - name: Install System Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y git zip unzip openjdk-17-jdk autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
-          pip install --upgrade buildozer cython virtualenv
+          sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev automake gettext libltdl-dev
+          pip install --upgrade pip "setuptools<69.0.0" wheel
+          pip install "cython<3.0.0" buildozer virtualenv
 
-      - name: Apply Pip Fix Patch
+      - name: Build APK with Buildozer
         run: |
-          mkdir -p .buildozer/android/platform
-          git clone -b master --single-branch https://github.com/kivy/python-for-android.git .buildozer/android/platform/python-for-android
-          sed -i 's/pip install -U pip/pip install "pip<24.0"/g' .buildozer/android/platform/python-for-android/pythonforandroid/build.py
-
-      - name: Build APK Direct
-        run: |
-          buildozer -v android debug
+          yes | buildozer -v android debug || buildozer -v android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

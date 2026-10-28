@@ -6,18 +6,17 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,html,css,js
 version = 1.0
 
-requirements = python3,flask,werkzeug,jinja2,itsdangerous,click,blinker,markupsafe,six, urllib3
+requirements = python3==3.11.5,flask,werkzeug,jinja2,itsdangerous,click,blinker,markupsafe,six,urllib3
 
 orientation = portrait
 fullscreen = 0
 android.permissions = INTERNET,ACCESS_NETWORK_STATE
 android.api = 33
-android.minapi = 21
+android.minapi = 24
 android.ndk = 25b
 android.accept_sdk_license = True
-android.archs = arm64-v8a, armeabi-v7a
+android.archs = arm64-v8a
 android.bootstrap = webview
-android.wakelock = False
 
 [buildozer]
 log_level = 2

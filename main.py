@@ -4,7 +4,7 @@ import subprocess
 from engine.legend_core import LegendEngine
 
 app = Flask(__name__)
-ai_engine = LegendEngine(model="deepseek-coder")
+ai_engine = LegendEngine(model="qwen2.5-coder:7b")
 
 # outputs फोल्डर सुनिश्चित करना
 os.makedirs("outputs", exist_ok=True)
@@ -15,7 +15,7 @@ HTML_TEMPLATE = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legend Coder AI + GitHub</title>
+    <title>Cosmic Coder AI + GitHub</title>
     <style>
         body { background-color: #121212; color: #e0e0e0; font-family: monospace; margin: 0; padding: 0; display: flex; flex-direction: column; height: 100vh; }
         .header { background-color: #1f1f1f; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; color: #00e676; border-bottom: 1px solid #333; }
@@ -31,9 +31,9 @@ HTML_TEMPLATE = """
     </style>
 </head>
 <body>
-    <div class="header">⚡ Legend Coder AI (DeepSeek Engine)</div>
+    <div class="header">⚡ Cosmic Coder AI (DeepSeek Engine)</div>
     <div class="chat-box" id="chatBox">
-        <div class="message ai">नमस्ते अजय! Legend Coder AI तैयार है। अपना प्रॉम्प्ट और फाइल का नाम लिखें।</div>
+        <div class="message ai">नमस्ते अजय! Cosmic Coder AI तैयार है। अपना प्रॉम्प्ट और फाइल का नाम लिखें।</div>
     </div>
     <div class="controls">
         <input type="text" id="filename" placeholder="फाइल का नाम (जैसे: app.py)" value="output.py">
@@ -126,7 +126,7 @@ def generate():
 def git_push():
     try:
         subprocess.run(["git", "add", "."], check=True, capture_output=True, text=True)
-        subprocess.run(["git", "commit", "-m", "Auto-update from Legend Coder AI"], check=False, capture_output=True, text=True)
+        subprocess.run(["git", "commit", "-m", "Auto-update from Cosmic Coder AI"], check=False, capture_output=True, text=True)
         result = subprocess.run(["git", "push", "origin", "main"], capture_output=True, text=True, check=True)
         return jsonify({"reply": "धमाका! कोड सफलतापूर्वक आपके GitHub रिपॉजिटरी पर पुश हो गया है! 🚀🔥"})
     except FileNotFoundError:

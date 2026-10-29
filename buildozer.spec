@@ -1,6 +1,6 @@
 [app]
-title = Legend Coder AI
-package.name = legendcoder
+title = Cosmic Coder
+package.name = cosmiccoder
 package.domain = org.ajay
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,html,css,js

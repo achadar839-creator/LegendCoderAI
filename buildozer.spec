@@ -5,8 +5,7 @@ package.domain = com.cosmiccoder
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,html,css,js,json,txt
 version = 1.0
-
-requirements = python3,kivy,flask,werkzeug,jinja2,itsdangerous,click,blinker,markupsafe,six,urllib3
+requirements = python3,kivy,flask,requests,urllib3,jinja2
 
 orientation = portrait
 fullscreen = 0
@@ -17,7 +16,7 @@ android.minapi = 24
 android.ndk = 25b
 android.accept_sdk_license = True
 android.archs = arm64-v8a
-p4a.bootstrap = webview
+p4a.bootstrap = sdl2
 
 [buildozer]
 log_level = 2

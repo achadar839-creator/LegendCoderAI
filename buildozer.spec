@@ -16,7 +16,7 @@ android.minapi = 24
 android.ndk = 25b
 android.accept_sdk_license = True
 android.archs = arm64-v8a
-android.bootstrap = webview
+p4a.bootstrap = webview
 
 [buildozer]
 log_level = 2

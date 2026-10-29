@@ -24,6 +24,9 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
+
+    - name: Remove Pre-installed Conflicting NDK
+      run: sudo rm -rf /usr/local/lib/android/sdk/ndk
     - name: Install System Build Tools
       run: |
         sudo apt-get update

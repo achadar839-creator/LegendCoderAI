@@ -30,13 +30,17 @@ jobs:
           sudo apt-get install -y git zip unzip autoconf libtool pkg-config zlib1g-dev \
             libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev automake gettext libltdl-dev
           pip install --upgrade "pip<24.0" "setuptools<69.0.0" wheel
-          pip install "cython<3.0.0" buildozer virtualenv
+          pip install "cython<3.0.0" "buildozer==1.5.0" virtualenv
 
-      - name: Accept Android Licenses & Build APK
+      - name: Pre-accept Android Licenses
         run: |
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
-          buildozer android debug
+          yes | /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
+      - name: Build APK with Buildozer
+        run: |
+          buildozer -v android debug
         env:
           DEBIAN_FRONTEND: noninteractive
           CI: true

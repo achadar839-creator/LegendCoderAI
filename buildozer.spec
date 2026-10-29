@@ -14,13 +14,13 @@ android.permissions = INTERNET,RECORD_AUDIO,WAKE_LOCK,FOREGROUND_SERVICE,FOREGRO
 android.api = 33
 android.ndk_api = 21
 android.minapi = 24
-android.ndk = 26b
+android.ndk = 25b
 android.accept_sdk_license = True
 android.archs = arm64-v8a
 p4a.bootstrap = webview
 
 [buildozer]
-log_level = 1
+log_level = 2
 warn_on_root = 1
 # p4a.branch = master
 services = CosmicService:service.py

@@ -11,8 +11,7 @@ requirements = python3, kivy
 orientation = portrait
 fullscreen = 0
 android.permissions = INTERNET,RECORD_AUDIO,WAKE_LOCK,FOREGROUND_SERVICE,FOREGROUND_SERVICE_MICROPHONE
-android.api = 33
-android.ndk_api = 24
+android.api = 33android.ndk_api = 24
 android.minapi = 24
 android.ndk = 25b
 android.accept_sdk_license = True
@@ -22,6 +21,6 @@ p4a.bootstrap = sdl2
 [buildozer]
 log_level = 2
 warn_on_root = 1
-# p4a.branch = master
+p4a.branch = master
 services = CosmicService:service.py
 android.manifest.application_arguments = android:usesCleartextTraffic="true"

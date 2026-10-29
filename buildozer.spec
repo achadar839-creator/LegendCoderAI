@@ -5,6 +5,7 @@ package.domain = com.cosmiccoder
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,html,css,js,json,txt
 version = 1.0
+requirements_python = 3.10
 requirements = python3,kivy,flask,requests,urllib3,jinja2
 
 orientation = portrait

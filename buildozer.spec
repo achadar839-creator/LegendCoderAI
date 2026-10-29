@@ -20,8 +20,8 @@ android.archs = arm64-v8a
 p4a.bootstrap = webview
 
 [buildozer]
-log_level = 2
+log_level = 1
 warn_on_root = 1
-p4a.branch = master
+# p4a.branch = master
 services = CosmicService:service.py
 android.manifest.application_arguments = android:usesCleartextTraffic="true"

@@ -30,15 +30,16 @@ jobs:
           sudo apt-get install -y git zip unzip autoconf libtool pkg-config zlib1g-dev \
             libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev automake gettext libltdl-dev
           pip install --upgrade "pip<24.0" "setuptools<69.0.0" wheel
-          pip install "cython<3.0.0" "buildozer>=1.5.0" "git+https://github.com/kivy/python-for-android.git@master" virtualenv
+          pip install "cython<3.0.0" buildozer virtualenv
 
-      - name: Build APK with Buildozer
+      - name: Accept Android Licenses & Build APK
         run: |
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
-          yes | buildozer -v android debug
+          buildozer android debug
         env:
           DEBIAN_FRONTEND: noninteractive
+          CI: true
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4

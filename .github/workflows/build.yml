@@ -27,21 +27,21 @@ jobs:
       - name: Install System Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y git zip unzip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev automake gettext libltdl-dev
+          sudo apt-get install -y git zip unzip autoconf libtool pkg-config zlib1g-dev \
+            libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev automake gettext libltdl-dev
           pip install --upgrade "pip<24.0" "setuptools<69.0.0" wheel
           pip install "cython<3.0.0" "buildozer>=1.5.0" "git+https://github.com/kivy/python-for-android.git@master" virtualenv
 
-      - name: Accept Licenses & Build APK
+      - name: Build APK with Buildozer
         run: |
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
-          buildozer -v android debug
+          yes | buildozer -v android debug
         env:
           DEBIAN_FRONTEND: noninteractive
 
-      - name: Upload APK
+      - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: CosmicCoder-APK
+          name: Cosmic-Coder-APK
           path: bin/*.apk
-          if-no-files-found: error

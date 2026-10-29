@@ -11,7 +11,7 @@ requirements = python3,flask,werkzeug,jinja2,itsdangerous,click,blinker,markupsa
 orientation = portrait
 fullscreen = 0
 android.permissions = INTERNET,ACCESS_NETWORK_STATE
-android.api = 33
+android.api = 34
 android.minapi = 24
 android.ndk = 25b
 android.accept_sdk_license = True
@@ -21,3 +21,4 @@ android.bootstrap = webview
 [buildozer]
 log_level = 2
 warn_on_root = 1
+p4a.branch = develop

@@ -14,6 +14,7 @@ android.permissions = INTERNET,RECORD_AUDIO,WAKE_LOCK,FOREGROUND_SERVICE,FOREGRO
 android.api = 33android.ndk_api = 24
 android.minapi = 24
 android.ndk = 25b
+android.ndk_api = 24
 android.accept_sdk_license = True
 android.archs = arm64-v8a
 p4a.bootstrap = sdl2

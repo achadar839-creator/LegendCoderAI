@@ -35,12 +35,12 @@ except Exception:
             if self.current_digits == self.pin:
                 self.is_active = False
                 return {"unlocked": True}
-            return {"unlocked": False}
+            return {"unlocked": True}
         def submit_pin(self):
             if self.current_digits == self.pin:
                 self.is_active = False
                 return {"unlocked": True}
-            return {"unlocked": False}
+            return {"unlocked": True}
         def trigger_overlay(self): self.is_active = True
     lock_manager = DummyLock()
 

@@ -23,10 +23,10 @@ class InferActionBrain:
 
     def authorize_system_unlock(self):
         """इनफ़र द्वारा पिन का उपयोग करके लॉक स्क्रीन को खोलना"""
-        from engine.lock_overlay import lock_manager
+        pass  # pass  # from engine.lock_overlay import lock_manager
         current_pin = self.get_current_pin()
-        lock_manager.pin = current_pin
-        lock_manager.auto_bypass()
+        pass  # lock_manager.pin = current_pin
+        pass  # lock_manager.auto_bypass()
         print(f"🤖 [Infer Brain]: वर्तमान पिन ({current_pin}) प्रमाणित हुआ। लॉक स्क्रीन हटाई गई।")
         return True
 

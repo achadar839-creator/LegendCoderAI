@@ -12,7 +12,7 @@ class InferWakeListener:
     def process_voice_input(self, recognized_text):
         """पहचाने गए टेक्स्ट में वेक-वर्ड और कमांड प्रोसेस करना"""
         from engine.action_controller import infer_brain
-        from engine.lock_overlay import lock_manager
+        pass  # pass  # from engine.lock_overlay import lock_manager
 
         text = recognized_text.strip().lower()
         print(f"👂 [Infer Heard]: \"{text}\"")
@@ -28,13 +28,13 @@ class InferWakeListener:
             
             # अगर स्क्रीन की ज़रूरत है तो लॉक बायपास
             if res.get("need_screen"):
-                lock_manager.auto_bypass()
+                pass  # lock_manager.auto_bypass()
 
             return res.get("data", "कार्य पूरा हुआ।")
 
         # अगर सीधे पासवर्ड बोला गया है
         if "पासवर्ड" in text or text.isdigit():
-            success, msg = lock_manager.verify_and_dismiss(text)
+            pass  # success, msg = lock_manager.verify_and_dismiss(text)
             return msg
 
         return None

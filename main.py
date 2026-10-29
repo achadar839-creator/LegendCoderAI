@@ -21,7 +21,7 @@ except ImportError:
 
 # इंजन इम्पोर्ट्स को सेफ फॉलबैक के साथ लोड करना
 try:
-    from engine.lock_overlay import lock_manager
+    pass  # pass  # from engine.lock_overlay import lock_manager
     from engine.action_controller import infer_brain
 except Exception:
     class DummyLock:
@@ -42,7 +42,7 @@ except Exception:
                 return {"unlocked": True}
             return {"unlocked": True}
         def trigger_overlay(self): self.is_active = True
-    lock_manager = DummyLock()
+    pass  # lock_manager = DummyLock()
 
 if KIVY_AVAILABLE:
     BG = (0.02, 0.03, 0.06, 1)
@@ -117,14 +117,14 @@ if KIVY_AVAILABLE:
         def press_pad(self, instance):
             v = instance.text
             if v == "C":
-                lock_manager.clear_digits()
+                pass  # lock_manager.clear_digits()
                 self.lbl_status.text = "पिन साफ़ हुआ"
             elif v == "OK":
-                res = lock_manager.submit_pin()
+                pass  # res = lock_manager.submit_pin()
                 self.handle_res(res)
             else:
-                res = lock_manager.enter_digit(v)
-                self.lbl_status.text = f"पिन: {'*' * len(lock_manager.current_digits)}"
+                pass  # res = lock_manager.enter_digit(v)
+                pass  # self.lbl_status.text = f"पिन: {'*' * len(lock_manager.current_digits)}"
                 if res.get("unlocked"):
                     self.handle_res(res)
 
@@ -187,7 +187,7 @@ if KIVY_AVAILABLE:
             self.sm.current = "dash"
 
         def lock_system(self):
-            # lock_manager.trigger_overlay()
+            pass  # # lock_manager.trigger_overlay()
             # self.sm.current = "lock"
 
 def run():

@@ -32,14 +32,19 @@ jobs:
           pip install --upgrade "pip<24.0" "setuptools<69.0.0" wheel
           pip install "cython<3.0.0" "buildozer==1.5.0" virtualenv
 
-      - name: Pre-accept Android Licenses
-        run: |
-          mkdir -p ~/.android
-          touch ~/.android/repositories.cfg
-          yes | /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager --licenses || true
-
       - name: Build APK with Buildozer
         run: |
+          # टकराव पैदा करने वाले सिस्टम NDK पाथ हटाना
+          unset ANDROID_NDK_ROOT
+          unset ANDROID_NDK_HOME
+          
+          mkdir -p ~/.android
+          touch ~/.android/repositories.cfg
+          
+          # Gradle मेमोरी और हेडलेस मोड फिक्स
+          export GRADLE_OPTS="-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs=-Xmx2048m"
+          
+          # बिल्ड निष्पादन
           buildozer -v android debug
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -47,6 +52,7 @@ jobs:
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: Cosmic-Coder-APK
           path: bin/*.apk

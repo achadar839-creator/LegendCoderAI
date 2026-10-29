@@ -32,7 +32,7 @@ jobs:
     - name: Install Buildozer & Cython
       run: |
         python -m pip install --upgrade pip
-        pip install --upgrade "Cython<3.0" buildozer virtualenv
+        pip install "Cython>=0.29.33,<3.0.0" buildozer virtualenv
 
     - name: Build APK with Buildozer
       run: |

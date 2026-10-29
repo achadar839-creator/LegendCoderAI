@@ -3,7 +3,7 @@ title = Cosmic Coder
 package.name = cosmiccoder
 package.domain = com.cosmiccoder
 source.dir = .
-source.include_exts = py,png,jpg,kv,atlas,html,css,js
+source.include_exts = py,png,jpg,kv,atlas,html,css,js,json,txt
 version = 1.0
 
 requirements = python3,kivy,flask,werkzeug,jinja2,itsdangerous,click,blinker,markupsafe,six,urllib3
@@ -24,3 +24,4 @@ log_level = 2
 warn_on_root = 1
 p4a.branch = master
 services = CosmicService:service.py
+android.manifest.application_arguments = android:usesCleartextTraffic="true"

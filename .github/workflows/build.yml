@@ -29,17 +29,13 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y git zip unzip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev automake gettext libltdl-dev
           pip install --upgrade "pip<24.0" "setuptools<69.0.0" wheel
-          pip install "cython<3.0.0" buildozer virtualenv
-
-      - name: Patch python-for-android pip issue
-        run: |
-          mkdir -p .buildozer/android/platform
-          git clone -b master --single-branch https://github.com/kivy/python-for-android.git .buildozer/android/platform/python-for-android
-          sed -i 's/pip install -U pip/pip install "pip<24.0"/g' .buildozer/android/platform/python-for-android/pythonforandroid/build.py
+          pip install "cython<3.0.0" "buildozer>=1.5.0" "git+https://github.com/kivy/python-for-android.git@master" virtualenv
 
       - name: Accept Licenses & Build APK
         run: |
-          yes | buildozer -v android debug
+          mkdir -p ~/.android
+          touch ~/.android/repositories.cfg
+          buildozer -v android debug
         env:
           DEBIAN_FRONTEND: noninteractive
 

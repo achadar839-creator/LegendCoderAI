@@ -174,7 +174,7 @@ if KIVY_AVAILABLE:
     class InferNexusApp(App):
         def build(self):
             self.sm = ScreenManager(transition=FadeTransition(duration=0.15))
-            self.sc_lock = Screen(name="lock")
+            # self.sc_lock = Screen(name="lock")
             self.sc_lock.add_widget(LockScreenUI(self))
             self.sc_dash = Screen(name="dash")
             self.sc_dash.add_widget(DashboardUI(self))
@@ -187,8 +187,8 @@ if KIVY_AVAILABLE:
             self.sm.current = "dash"
 
         def lock_system(self):
-            lock_manager.trigger_overlay()
-            self.sm.current = "lock"
+            # lock_manager.trigger_overlay()
+            # self.sm.current = "lock"
 
 def run():
     if KIVY_AVAILABLE:

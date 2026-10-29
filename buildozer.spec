@@ -6,7 +6,7 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,html,css,js,json,txt
 version = 1.0
 requirements_python = 3.10
-requirements = python3==3.11.9,hostpython3==3.11.9,kivy==2.3.1,pyjnius,android,requests,urllib3,idna,certifi
+requirements = python3,kivy==2.3.1,pyjnius,android,requests,urllib3,idna,certifi
 
 orientation = portrait
 fullscreen = 0
@@ -22,6 +22,6 @@ p4a.bootstrap = sdl2
 [buildozer]
 log_level = 2
 warn_on_root = 1
-p4a.branch = master
+p4a.branch = v2024.01.21
 services = CosmicService:service.py
 android.manifest.application_arguments = android:usesCleartextTraffic="true"

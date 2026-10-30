@@ -1,3 +1,6 @@
+class NoOpLock:
+    is_active=False
+lock_manager=NoOpLock()
 import os
 import sys
 import datetime
@@ -24,25 +27,7 @@ try:
     pass  # pass  # from engine.lock_overlay import lock_manager
     from engine.action_controller import infer_brain
 except Exception:
-    class DummyLock:
-        pin = "8899"
-        is_active = True
-        current_digits = ""
-        def tap_key_icon(self): pass
-        def clear_digits(self): self.current_digits = ""
-        def enter_digit(self, d):
-            self.current_digits += str(d)
-            if self.current_digits == self.pin:
-                self.is_active = False
-                return {"unlocked": True}
-            return {"unlocked": True}
-        def submit_pin(self):
-            if self.current_digits == self.pin:
-                self.is_active = False
-                return {"unlocked": True}
-            return {"unlocked": True}
-        def trigger_overlay(self): self.is_active = True
-    pass  # lock_manager = DummyLock()
+    pass
 
 if KIVY_AVAILABLE:
     BG = (0.02, 0.03, 0.06, 1)
@@ -174,7 +159,7 @@ if KIVY_AVAILABLE:
     class InferNexusApp(App):
         def build(self):
             self.sm = ScreenManager(transition=FadeTransition(duration=0.15))
-            # self.sc_lock = Screen(name="lock")
+            self.sc_lock = Screen(name="lock")
             self.sc_lock.add_widget(LockScreenUI(self))
             self.sc_dash = Screen(name="dash")
             self.sc_dash.add_widget(DashboardUI(self))

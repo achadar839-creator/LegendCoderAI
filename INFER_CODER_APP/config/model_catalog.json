@@ -1,0 +1,30 @@
+{
+    "lite": {
+        "name": "Qwen2.5-Coder 1.5B Q4",
+        "size": "940 MB",
+        "ram_gb": 3,
+        "file": "qwen2.5-coder-1.5b-instruct-q4_k_m.gguf",
+        "url": "https://huggingface.co/bartowski/Qwen2.5-Coder-1.5B-Instruct-GGUF/resolve/main/Qwen2.5-Coder-1.5B-Instruct-Q4_K_M.gguf"
+    },
+    "standard": {
+        "name": "Standard Coding Model",
+        "size": "2-4 GB",
+        "ram_gb": 6,
+        "file": "",
+        "url": ""
+    },
+    "advanced": {
+        "name": "Advanced Coding Model",
+        "size": "4-8 GB",
+        "ram_gb": 10,
+        "file": "",
+        "url": ""
+    },
+    "ultra": {
+        "name": "Ultra Coding Model",
+        "size": "8 GB+",
+        "ram_gb": 16,
+        "file": "",
+        "url": ""
+    }
+}

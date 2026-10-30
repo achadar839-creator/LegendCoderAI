@@ -1,0 +1,10 @@
+{
+    "mode": "offline",
+    "provider": "llama_cpp",
+    "model_file": "models/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf",
+    "context_size": 2048,
+    "threads": 3,
+    "gpu_layers": 0,
+    "internet_required": false,
+    "paid_api_required": false
+}

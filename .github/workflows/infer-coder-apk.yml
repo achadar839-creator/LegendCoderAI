@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'INFER_CODER_APP/**'
+xq      - 'INFER_CODER_APP/**'
 
 permissions:
   contents: read
